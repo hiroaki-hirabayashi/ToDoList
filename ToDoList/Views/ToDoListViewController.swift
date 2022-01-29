@@ -12,7 +12,7 @@ final class ToDoListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    let itemArray = [
+    var itemArray = [
     "Apple",
     "banana",
     "natu"
@@ -29,9 +29,20 @@ final class ToDoListViewController: UIViewController {
     }
 
     @IBAction private func addButtonPressed(_ sender: Any) {
+        var textField = UITextField()
+        
+        // アラート作成
         let alert = UIAlertController(title: "新しいToDoを追加します",
                                       message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "追加", style: .default) { action in
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData()
+        }
+        
+        // アラートにTextField追加
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "新しいToDoを追加"
+            textField = alertTextField
         }
         
         alert.addAction(action)
