@@ -8,16 +8,16 @@
 import UIKit
 
 final class ToDoListViewController: UIViewController {
-   
+    
     
     @IBOutlet private weak var tableView: UITableView!
     
     var itemArray = [
-    "Apple",
-    "banana",
-    "natu"
+        "Apple",
+        "banana",
+        "natu"
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
@@ -27,7 +27,17 @@ final class ToDoListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
+    // AppDelegate -> applicationWillEnterForegroundの通知
+    @objc func viewWillEnterForeground(notification: Notification) {
+        print("フォアグラウンド")
+    }
+    
+    // AppDelegate -> applicationDidEnterBackgroundの通知
+    @objc func viewDidEnterBackground(notification: Notification) {
+        print("バックグラウンド")
+    }
+    
     @IBAction private func addButtonPressed(_ sender: Any) {
         var textField = UITextField()
         

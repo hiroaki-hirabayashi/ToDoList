@@ -12,10 +12,20 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    // アプリ起動時
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("起動")
         return true
+    }
+    
+    // アプリがバックグラウンドになった時(Swift5からは呼ばれない SceneDelegateに変更)
+    func applicationDidEnterBackground(_ application: UIApplication) {
+    }
+    
+    // アプリ終了
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("タスクキル")
     }
 
     // MARK: UISceneSession Lifecycle
