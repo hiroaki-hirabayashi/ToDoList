@@ -7,10 +7,11 @@
 
 import UIKit
 
-class ToDoListViewController: UIViewController {
+final class ToDoListViewController: UIViewController {
    
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    
     let itemArray = [
     "Apple",
     "banana",
@@ -19,11 +20,15 @@ class ToDoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTableView()
+    }
+    
+    private func setUpTableView() {
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    @IBAction func addButtonPressed(_ sender: Any) {
+    @IBAction private func addButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "新しいToDoを追加します",
                                       message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "追加", style: .default) { action in
