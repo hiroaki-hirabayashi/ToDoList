@@ -40,7 +40,14 @@
                             <constraint firstAttribute="bottom" secondItem="wDW-s4-9dI" secondAttribute="bottom" id="Qux-V1-3Eu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ToDoList" id="YjB-On-cW9"/>
+                    <navigationItem key="navigationItem" title="ToDoList" id="YjB-On-cW9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ilr-NW-C3v">
+                            <color key="tintColor" systemColor="systemTealColor"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="511-Sz-LD8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="wDW-s4-9dI" id="FLu-aM-gnF"/>
                     </connections>

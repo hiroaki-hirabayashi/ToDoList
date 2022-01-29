@@ -23,7 +23,18 @@ class ToDoListViewController: UIViewController {
         tableView.delegate = self
     }
 
-
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "新しいToDoを追加します",
+                                      message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "追加", style: .default) { action in
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
 }
 
 // MARK: - TableViewDataSource
@@ -39,9 +50,6 @@ extension ToDoListViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    
 }
 
 // MARK: - TableViewDelegate
